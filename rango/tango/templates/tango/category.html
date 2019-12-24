@@ -1,0 +1,25 @@
+{% extends 'base/base.html' %}
+
+{%block title%}
+    {% if category %}
+        {{category.title}}
+    {% else %}
+        Does Not Exist
+    {% endif %}  
+{%endblock%}
+
+{%block content%}
+    
+    {% if category %}
+    <a href=" {% url 'tango:add_page' category_slug=category.slug%} "> Add New page </a>
+        {{category.title}}
+            {% if page %}
+                {% for pages in page  %}
+                <h6><a href="{% url 'tango:show_page' page_slug=pages.slug %}">{{pages.title}}</a></h6> 
+                {% endfor %}
+            {% else %}
+            <h3>There are no pages available</h3>
+            {% endif %}
+    {% endif %}
+
+{%endblock%}

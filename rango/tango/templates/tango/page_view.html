@@ -1,0 +1,19 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+        {% if page %}
+            {{page.title}}
+            {% else %}
+                Does Not Exist
+        {% endif %} 
+
+{% endblock %}
+
+{% block content %}
+        {% if page %}
+            <h1>{{page.title}}</h1>
+            {{page.content}}
+            {% else %}
+                Does Not Exist
+        {% endif %} 
+{% endblock %}
